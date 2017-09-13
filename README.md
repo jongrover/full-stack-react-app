@@ -22,13 +22,15 @@ Using Node, Express, React, ReactRouter, Redux, Mongo.
   "presets": ["es2015"],
 }
 ```  
-7. In __package.json__ ```json
+7. In __package.json__  
+```json
 "scripts": {
   "start": "babel-node server/index.js",
   "test": "echo \"Error: no test specified\" && exit 1"
 }
 ```  
-8. In __server/index.js__ ```javascript
+8. In __server/index.js__  
+```javascript
 import express from 'express';
 
 let app = express();
