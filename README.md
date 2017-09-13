@@ -118,7 +118,8 @@ import path from 'path';
 
 export default {
   devtool: 'eval-source-map',
-  entry: path.join(__dirname, './client/index.js'),
+  context: __dirname,
+  entry: './client/index.js',
   output: {
     path: '/public',
     filename: 'bundle.js'
@@ -149,4 +150,65 @@ app.use(webpackMiddleware(compiler));
 
 ## F. Setup Hot Reload for React File Changes
 
-1. ...
+1. $ `npm install --save-dev webpack-hot-middleware react-hot-loader`
+2. Update __webpack.config.dev.js__ to include devtool, context, and additional entry point from webpack-hot-middleware, add publicPath to output to the desired folder inside /public, add plugins, and add react-hot-loader to module loaders :  
+```javascript
+import path from 'path';
+import webpack from 'webpack';
+
+export default {
+  devtool: 'cheap-module-eval-source-map',
+  context: __dirname,
+  entry: [
+    'webpack-hot-middleware/client?reload=true',
+    './client/index.js'
+  ],
+  output: {
+    path: '/public',
+    publicPath: '/js/',
+    filename: 'bundle.js'
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ],
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        include: path.join(__dirname, 'client'),
+        loaders: ['react-hot-loader', 'babel-loader']
+      }
+    ]
+  }
+}
+```  
+3. $ `mkdir server/public/js server/public/css server/public/img`
+4. Update __server/public/index.html__ script to point to the js folder where the bundle.js will now be created at on hot reload: `<script src="js/bundle.js"></script>`
+5. Update __server/index.js__ to iunclude and configure hot middleware:  
+```javascript
+import express from 'express';
+import path from 'path';
+import webpack from 'webpack';
+import webpackMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackConfig from '../webpack.config.dev';
+
+let app = express();
+const compiler = webpack(webpackConfig);
+app.use(webpackMiddleware(compiler, { publicPath: webpackConfig.output.publicPath }));
+app.use(webpackHotMiddleware(compiler));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+app.listen(3000, (err) => err ? console.log(err) : console.log('Running on localhost:3000'));
+```  
+6. Stop and restart server pressing Ctrl+c and the `npm start` again. Thenn make an update to __client/containers/App.js__ then save and browser should automatically update.
+
+## G. Setup Bootstrap (sans-jquery)
+
+1. $ `npm install --save bootstrap react-bootstrap`
+2. $ `npm install --save-dev css-loader style-loader file-loader url-loader`
+3. 
