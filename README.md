@@ -16,7 +16,7 @@ Using Node, Express, React, ReactRouter, Redux, Mongo.
 3. $ `npm install --save express`
 4. $ `npm install --save-dev babel-core babel-cli babel-preset-es2015`
 5. $ `touch .babelrc`
-6. ```bash  
+6. Add  the following into __.babelrc__ ```json
 {
   "presets": ["es2015"],
 }
@@ -139,42 +139,4 @@ app.use(webpackMiddleware(compiler));
 
 ## F. Setup Hot Reload for React File Changes
 
-1. $ `npm install --save-dev webpack-hot-middleware react-hot`
-2. In __server/index.js__ add `import webpackHotMiddleware from 'webpack-hot-middleware';` and change ```javascript
-app.use(webpackMiddleware(complier, {
-  hot: true,
-  publicPath: webpackConfig.output.publicPath,
-  noInfo: true
-app.use(webpackHotMiddleware(compiler));
-```  
-3. In __webpack.config.dev.js__ change entry to array and add in hot reload and plugins ```javascript
-import path from 'path';
-import webpack from 'webpack';
-
-export default {
-  devtool: 'eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client',
-    path.join(__dirname, './client/index.js')
-  ],
-  output: {
-    path: '/public',
-    filename: 'bundle.js'
-  },
-  plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
-  ],
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        include: path.join(__dirname, 'client'),
-        loaders: ['react-hot-loader', 'babel-loader']
-      }
-    ]
-  }
-}
-```  
-4. ...
+1. ...
