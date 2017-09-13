@@ -47,12 +47,14 @@ app.listen(3000, () => console.log('Running on localhost:3000'));
 
 1. $ `mkdir server/public`
 2. $ `touch server/public/index.html`
-1. In __server/index.js__ add the following `import path from 'path';` and replace the following ```javascript
+1. In __server/index.js__ add the following `import path from 'path';` and replace the following  
+```javascript
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, './public/index.html'));
 });
 ```  
-2. In __public/index.html__ insert boilerplate html code ```html
+2. In __public/index.html__ insert boilerplate html code  
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +73,8 @@ app.get("/", (req, res) => {
 ## D. Setup Server Live Reload on File Changes
 
 1. $ `npm --save-dev nodemon`
-2. Update __package.json__ with ```json
+2. Update __package.json__ with  
+```json
 "scripts": {
   "start": "nodemon --watch server --exec babel-node -- server/index.js",
   "test": "echo \"Error: no test specified\" && exit 1"
@@ -87,14 +90,16 @@ app.get("/", (req, res) => {
 4. $ `mkdir client/actions client/components client/containers client/reducers`
 5. $ `touch client/index.js client/containers/App.js webpack.config.dev.js`
 6. In __server/index.html__ change body content to `<div id="root"></div>` add just before bottom of body `<script src="bundle.js"></script>`
-7. In __client/index.js__ put ```javascript
+7. In __client/index.js__ put  
+```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 ```  
-8. In __client/containers/App.js__ put ```javascript
+8. In __client/containers/App.js__ put  
+```javascript
 import React, {Component} from 'react';
 
 class App extends Component {
@@ -107,7 +112,8 @@ class App extends Component {
 
 export default App;
 ```  
-9. In __webpack.config.dev.js__ put ```javascript
+9. In __webpack.config.dev.js__ put  
+```javascript
 import path from 'path';
 
 export default {
@@ -129,7 +135,8 @@ export default {
 }
 ```  
 10. In __.babelrc__ add react preset `{"presets": ["es2015", "react"]}`
-11. In __server/index.js__ add ```javascript
+11. In __server/index.js__ add  
+```javascript
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackConfig from '../webpack.config.dev.js';
