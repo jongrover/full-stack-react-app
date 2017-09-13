@@ -16,7 +16,8 @@ Using Node, Express, React, ReactRouter, Redux, Mongo.
 3. $ `npm install --save express`
 4. $ `npm install --save-dev babel-core babel-cli babel-preset-es2015`
 5. $ `touch .babelrc`
-6. Add  the following into __.babelrc__ ```json
+6. Add  the following into __.babelrc__  
+```json
 {
   "presets": ["es2015"],
 }
