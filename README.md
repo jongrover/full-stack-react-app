@@ -186,7 +186,7 @@ export default {
   }
 }
 ```  
-5. Update __server/index.js__ to iunclude and configure hot middleware:  
+5. Update __server/index.js__ to include and configure hot middleware:  
 ```javascript
 import express from 'express';
 import path from 'path';
