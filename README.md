@@ -11,7 +11,7 @@ Using Node, Express, React, ReactRouter, Redux, Mongo.
 
 ## B. Get Express Up and Running
 
-1. $ `mkdir app`, `mkdir server`, `touch server/index.js`
+1. $ `mkdir app`, `cd app` `mkdir server`, `touch server/index.js`
 2. $ `npm init -y`
 3. $ `npm install --save express`
 4. $ `npm install --save-dev babel-core babel-cli babel-preset-es2015`
