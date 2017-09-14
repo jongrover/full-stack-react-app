@@ -4,14 +4,15 @@ Using Node, Express, React, ReactRouter, Redux, Mongo.
 
 ## A. Create README and GitIgnore
 
-1. $ `touch README.md .gitignore`
-2. In __README.md__ write details about this project.
-3. In __.gitignore__ copy and paste standard ignore files from Github for both Express and React.
-4. $ `git init`, `git add .`, `git remote add origin <your remote repo>`, `git push`.
+1. 1. $ `mkdir full-stack-react-app`, `cd full-stack-react-app`
+2. $ `touch README.md .gitignore`
+3. In __README.md__ write details about this project.
+4. In __.gitignore__ copy and paste standard ignore files from Github for both Express and React.
+5. $ `git init`, `git add .`, `git remote add origin <your remote repo>`, `git push`.
 
 ## B. Get Express Up and Running
 
-1. $ `mkdir full-stack-react-app`, `cd full-stack-react-app` `mkdir server`, `touch server/index.js`
+1. $ `mkdir server`, `touch server/index.js`
 2. $ `npm init -y`
 3. $ `npm install --save express`
 4. $ `npm install --save-dev babel-core babel-cli babel-preset-es2015`
