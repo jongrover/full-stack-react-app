@@ -206,7 +206,7 @@ app.get("/", (req, res) => {
 
 app.listen(3000, (err) => err ? console.log(err) : console.log('Running on localhost:3000'));
 ```  
-6. Stop and restart server pressing Ctrl+c and the `npm start` again. Thenn make an update to __client/containers/App.js__ then save and browser should automatically update.
+6. Stop and restart server pressing Ctrl+c and the `npm start` again. Then make an update to __client/containers/App.js__ then save and browser should automatically update.
 
 ## G. Setup Bootstrap (sans-jquery)
 
