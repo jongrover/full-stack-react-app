@@ -10,7 +10,7 @@ export default {
   ],
   output: {
     path: '/public',
-    publicPath: '/js/',
+    publicPath: '/',
     filename: 'bundle.js'
   },
   plugins: [
@@ -19,11 +19,9 @@ export default {
   ],
   module: {
     loaders: [
-      {
-        test: /\.js$/,
-        include: path.join(__dirname, 'client'),
-        loaders: ['react-hot-loader', 'babel-loader']
-      }
+      { test: /\.js$/, include: path.join(__dirname, 'client'), exclude: /node_modules/, loaders: ['react-hot-loader', 'babel-loader'] },
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { test: /\.(png|gif|jpg|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
     ]
   }
 }

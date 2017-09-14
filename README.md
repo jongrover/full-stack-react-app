@@ -165,7 +165,7 @@ export default {
   ],
   output: {
     path: '/public',
-    publicPath: '/js/',
+    publicPath: '/',
     filename: 'bundle.js'
   },
   plugins: [
@@ -177,14 +177,13 @@ export default {
       {
         test: /\.js$/,
         include: path.join(__dirname, 'client'),
+        exclude: /node_modules/,
         loaders: ['react-hot-loader', 'babel-loader']
       }
     ]
   }
 }
 ```  
-3. $ `mkdir server/public/js server/public/css server/public/img`
-4. Update __server/public/index.html__ script to point to the js folder where the bundle.js will now be created at on hot reload: `<script src="js/bundle.js"></script>`
 5. Update __server/index.js__ to iunclude and configure hot middleware:  
 ```javascript
 import express from 'express';
@@ -209,6 +208,21 @@ app.listen(3000, (err) => err ? console.log(err) : console.log('Running on local
 
 ## G. Setup Bootstrap (sans-jquery)
 
-1. $ `npm install --save bootstrap react-bootstrap`
-2. $ `npm install --save-dev css-loader style-loader file-loader url-loader`
-3. 
+1. $ `npm install --save react-bootstrap` will give you the JavaScript only without any dependencies such as jQuery. Learn more at: [https://react-bootstrap.github.io](https://react-bootstrap.github.io)
+2. $ `npm install --save bootstrap-only-css` will get you the bootstrap css only!
+3. In __webpack.config.dev.js__ add the flowwing loaders:  
+```JavaScript
+module: {
+  loaders: [
+    { test: /\.js$/, include: path.join(__dirname, 'client'), exclude: /node_modules/, loaders: ['react-hot-loader', 'babel-loader'] },
+    { test: /\.css$/, loader: "style-loader!css-loader" },
+    { test: /\.(png|gif|jpg|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+  ]
+}
+```  
+4. In __client/containers/App.js__ import in the css with `import 'bootstrap-only-css';`
+5. Stop and restart server and head to browser and the text should now be Helvetica.
+
+## H.
+
+1. ...
