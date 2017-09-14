@@ -4,7 +4,7 @@ Using Node, Express, React, ReactRouter, Redux, Mongo.
 
 ## A. Create README and GitIgnore
 
-1. 1. $ `mkdir full-stack-react-app`, `cd full-stack-react-app`
+1. $ `mkdir full-stack-react-app`, `cd full-stack-react-app`
 2. $ `touch README.md .gitignore`
 3. In __README.md__ write details about this project.
 4. In __.gitignore__ copy and paste standard ignore files from Github for both Express and React.
