@@ -212,7 +212,7 @@ app.listen(3000, (err) => err ? console.log(err) : console.log('Running on local
 
 1. $ `npm install --save react-bootstrap` will give you the JavaScript only without any dependencies such as jQuery. Learn more at: [https://react-bootstrap.github.io](https://react-bootstrap.github.io)
 2. $ `npm install --save bootstrap-only-css` will get you the bootstrap css only!
-3. In __webpack.config.dev.js__ add the flowwing loaders:  
+3. In __webpack.config.dev.js__ add the following loaders:  
 ```JavaScript
 module: {
   loaders: [
