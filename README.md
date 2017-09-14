@@ -118,7 +118,7 @@ export default App;
 import path from 'path';
 
 export default {
-  devtool: 'eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
   context: __dirname,
   entry: './client/index.js',
   output: {
