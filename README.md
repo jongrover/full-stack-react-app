@@ -153,7 +153,7 @@ app.use(webpackMiddleware(compiler));
 ## F. Setup Hot Reload for React File Changes
 
 1. $ `npm install --save-dev webpack-hot-middleware react-hot-loader`
-2. Update __webpack.config.dev.js__ to include additional entry point from webpack-hot-middleware, add publicPath to output to the desired folder to / referiing to /public, add plugins, and add react-hot-loader to module loaders :  
+2. Update __webpack.config.dev.js__ to include additional entry point from webpack-hot-middleware, add publicPath to output to the desired folder to / referring to /public, add plugins, and add react-hot-loader to module loaders :  
 ```javascript
 import path from 'path';
 import webpack from 'webpack';
