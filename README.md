@@ -1,6 +1,6 @@
 # Full Stack React App Example
 
-Full Stack Example App using: Node, Express, Mongo DB, Mongoose, React, ReactRouter, Redux, Webpack, Babel, written completely end-to-end in ES2015.
+Full Stack Example App using: Node, Express, Mongo DB, Mongoose, React, ReactRouter, Redux, Webpack, Babel, written completely end-to-end in ES2015. Explained in digestible bite-sized pieces.
 
 ## A. Create README and GitIgnore
 
