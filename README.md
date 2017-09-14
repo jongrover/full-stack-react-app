@@ -225,6 +225,26 @@ module: {
 4. In __client/containers/App.js__ import in the css with `import 'bootstrap-only-css';`
 5. Stop and restart server and head to browser and the text should now be Helvetica.
 
-## H.
+## H. Setup Testing with Jest
+
+1. ...
+
+## I. Setup Build and Dist (For Dev and Prod Environments)
+
+1. ...
+
+## J. Setup Mongo DB and Mongoose ORM
+
+1. ...
+
+## K. Create Models, Schema, and Test API Endpoints
+
+1. ...
+
+## L. Setup ReactRouter
+
+1. ...
+
+## M. Create Redux and Fetch State BackEnd API
 
 1. ...
