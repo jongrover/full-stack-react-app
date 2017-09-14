@@ -130,6 +130,7 @@ export default {
       {
         test: /\.js$/,
         include: path.join(__dirname, 'client'),
+        exclude: /node_modules/,
         loaders: ['babel-loader']
       }
     ]
