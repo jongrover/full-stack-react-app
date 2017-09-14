@@ -90,7 +90,7 @@ app.get("/", (req, res) => {
 3. $ `mkdir client`
 4. $ `mkdir client/actions client/components client/containers client/reducers`
 5. $ `touch client/index.js client/containers/App.js webpack.config.dev.js`
-6. In __server/index.html__ change body content to `<div id="root"></div>` add just before bottom of body `<script src="bundle.js"></script>`
+6. In __server/public/index.html__ change body content to `<div id="root"></div>` add just before bottom of body `<script src="bundle.js"></script>`
 7. In __client/index.js__ put  
 ```javascript
 import React from 'react';
