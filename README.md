@@ -227,12 +227,12 @@ module: {
 
 ## H. Setup Testing with Mocha
 
-1. $ `npm install --save-dev mocha expect react-addons-test-utils`
+1. $ `npm install --save-dev mocha ignore-styles expect react-test-renderer`
 2. In __package.json__ update the test command:  
 ```json
 "scripts": {
   "start": "nodemon --watch server --exec babel-node -- server/index.js",
-  "test": "mocha ./client/**/*.test.js --compilers js:babel-core/register"
+  "test": "mocha ./client/**/*.test.js --compilers js:babel-core/register --require ignore-styles"
 },
 ```  
 3. Create the file __/clients/containers/App.test.js__ and fill with a dummy test:  
@@ -240,13 +240,29 @@ module: {
 import expect from 'expect';
 
 describe("App", () => {
-
   it("should have a passing test", () => {
     expect(true).toEqual(true);
   });
 });
 ```  
 4. Run the test $ `npm test` should display one passing test.
+5. Next in __/client/containers/App.test.js__ update test to check App component is outputting the proper JSX:  
+```javascript
+import React from 'react';
+import ShallowRenderer from 'react-test-renderer/shallow';
+import expect from 'expect';
+import App from './App.js';
+
+describe("App", () => {
+  it("should render Hello from React!!", () => {
+    const renderer = new ShallowRenderer();
+    renderer.render(<App />);
+    const result = renderer.getRenderOutput();
+    expect(result.props.children).toEqual(<h1>Hello from React!!</h1>);
+  });
+});
+```   
+6. Run the test $ `npm test` should still display one passing test.
 
 ## I. Setup Build and Dist (For Dev and Prod Environments)
 
