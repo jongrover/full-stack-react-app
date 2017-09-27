@@ -239,13 +239,14 @@ module: {
 ```javascript
 import expect from 'expect';
 
-describe("App Container Test", () => {
+describe("App", () => {
 
   it("should have a passing test", () => {
     expect(true).toEqual(true);
   });
 });
-```
+```  
+4. Run the test $ `npm test` should display one passing test.
 
 ## I. Setup Build and Dist (For Dev and Prod Environments)
 
