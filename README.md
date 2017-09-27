@@ -225,9 +225,27 @@ module: {
 4. In __client/containers/App.js__ import in the css with `import 'bootstrap-only-css';`
 5. Stop and restart server and head to browser and the text should now be Helvetica.
 
-## H. Setup Testing with Jest
+## H. Setup Testing with Mocha
 
-1. ...
+1. $ `npm install --save-dev mocha expect react-addons-test-utils`
+2. In __package.json__ update the test command:  
+```json
+"scripts": {
+  "start": "nodemon --watch server --exec babel-node -- server/index.js",
+  "test": "mocha ./client/**/*.test.js --compilers js:babel-core/register"
+},
+```  
+3. Create the file __/clients/containers/App.test.js__ and fill with a dummy test:  
+```javascript
+import expect from 'expect';
+
+describe("App Container Test", () => {
+
+  it("should have a passing test", () => {
+    expect(true).toEqual(true);
+  });
+});
+```
 
 ## I. Setup Build and Dist (For Dev and Prod Environments)
 
