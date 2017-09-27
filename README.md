@@ -89,7 +89,7 @@ app.get("/", (req, res) => {
 2. $ `npm install --save-dev webpack webpack-dev-middleware babel-loader babel-preset-react`
 3. $ `mkdir client`
 4. $ `mkdir client/actions client/components client/containers client/reducers`
-5. $ `touch client/index.js client/containers/App.js webpack.config.dev.js`
+5. $ `touch client/index.js client/containers/App.js webpack.config.js`
 6. In __server/public/index.html__ change body content to `<div id="root"></div>` add just before bottom of body `<script src="bundle.js"></script>`
 7. In __client/index.js__ put  
 ```javascript
@@ -113,7 +113,7 @@ class App extends Component {
 
 export default App;
 ```  
-9. In __webpack.config.dev.js__ put  
+9. In __webpack.config.js__ put  
 ```javascript
 import path from 'path';
 
@@ -142,7 +142,7 @@ export default {
 ```javascript
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
-import webpackConfig from '../webpack.config.dev.js';
+import webpackConfig from '../webpack.config.js';
 
 ...
 const compiler = webpack(webpackConfig);
@@ -153,7 +153,7 @@ app.use(webpackMiddleware(compiler));
 ## F. Setup Hot Reload for React File Changes
 
 1. $ `npm install --save-dev webpack-hot-middleware react-hot-loader`
-2. Update __webpack.config.dev.js__ to include additional entry point from webpack-hot-middleware, add publicPath to output to the desired folder to / referring to /public, add plugins, and add react-hot-loader to module loaders :  
+2. Update __webpack.config.js__ to include additional entry point from webpack-hot-middleware, add publicPath to output to the desired folder to / referring to /public, add plugins, and add react-hot-loader to module loaders :  
 ```javascript
 import path from 'path';
 import webpack from 'webpack';
@@ -212,7 +212,7 @@ app.listen(3000, (err) => err ? console.log(err) : console.log('Running on local
 
 1. $ `npm install --save react-bootstrap` will give you the JavaScript only without any dependencies such as jQuery. Learn more at: [https://react-bootstrap.github.io](https://react-bootstrap.github.io)
 2. $ `npm install --save bootstrap-only-css` will get you the bootstrap css only!
-3. In __webpack.config.dev.js__ add the following loaders:  
+3. In __webpack.config.js__ add the following loaders:  
 ```JavaScript
 module: {
   loaders: [

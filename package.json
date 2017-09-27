@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --watch server --exec babel-node -- server/index.js",
-    "test": "mocha ./client/**/*.test.js --compilers js:babel-core/register --require ignore-styles"
+    "test": "mocha ./client/**/*.test.js --compilers js:babel-core/register --require ignore-styles",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "Jonathan Grover",
